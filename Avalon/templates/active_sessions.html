@@ -1,0 +1,6 @@
+<h2>Active Sessions</h2>
+<ul>
+{% for session in sessions %}
+  <li>Username: {{ session.username }} (last seen: {{ session.last_seen }})</li>
+{% endfor %}
+</ul>
