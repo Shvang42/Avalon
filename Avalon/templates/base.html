@@ -93,10 +93,14 @@
         {% if 'user_id' not in request.session %}
             <a href="{% url 'register' %}" id="create-user">Create User</a>
         {% endif %}
+
+        {% if 'user_id' in request.session %}
+            <p>LOGGED IN AS {{ request.session.username }}</p>
+        {% endif %}
       
     </div>
 
-    <p>LOGGED IN AS {{ request.session.username }}</p>
+    
     
 </body>
 </html>

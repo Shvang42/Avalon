@@ -64,13 +64,15 @@ def create_lobby(request):
         lobby = Lobby(lobby_name=lobby_name, lobby_code=lobby_code, lobby_host=username, lobby_host_id=user_id)
 
        
-        lobby.lobby_users.append((username, user_id))
+        lobby.lobby_users.append([username, user_id])
         lobby.save()
         rel_lobby = lobby 
         return render(request, "lobby.html", {"lobby" : rel_lobby})
     
 def open_active_lobbies(request):
     lobbies = Lobby.objects.all()
+    for lobby in lobbies:
+        print(lobby.lobby_users)
     
     return render(request, "active_sessions.html", {'lobbies' : lobbies})
 
@@ -81,14 +83,14 @@ def join_lobby(request, lobby_code):
     user_id = request.session['user_id']
     lobbies = Lobby.objects.all()
     rel_lobby = None
-    print(username, lobby_code, "??????")
+    print(username, user_id, "??????")
     for lobby in lobbies:
         print(lobby.lobby_code)
         if lobby.lobby_code == lobby_code:
             rel_lobby = lobby
-            if (username, user_id) not in lobby.lobby_users:
-               
-                rel_lobby.lobby_users.append((username, user_id))
+            print(lobby.lobby_users)
+            if [username, user_id] not in lobby.lobby_users:
+                rel_lobby.lobby_users.append([username, user_id])
     if rel_lobby:
         print(rel_lobby.lobby_users)
         rel_lobby.save()
