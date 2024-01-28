@@ -4,34 +4,66 @@ from .models import User
 from .models import Lobby
 from datetime import datetime 
 from random import randint
+from django.contrib import messages
 def home(request):
     return render(request, 'base.html')
 
 def register(request):
     return render(request, "register.html")
-    
+
+def login(request):
+    return render(request, "login.html")
 
 def save_register(request):
     if request.method == "POST":
-        if "user_id" in request:
-            render(request, "base.html")
-
+        
         username = request.POST.get('username')
-        if len(str(username)) < 25:
-            user_id = ""
-            for _ in range(25):
-                user_id += chr(randint(97, 122))
-            user = User(username=username, user_id=user_id)
-            user.save()
-            request.session["username"] = username 
-            request.session["user_id"] = user_id 
-            print("SUCCESS!")
-    users = User.objects.all()
-    for user in users:
-        print(user.username)
+        password = request.POST.get('password')
+        password_confirmation = request.POST.get('password_confirmation')
+        users = User.objects.all()
+        for user in users:
+            if user.password == password and user.username == username:
+                
+                return render(request, "register.html", {"error" : "REGISTER FAILED"})
+
+                
+            
+        if not (3 <= len(str(username)) <= 25) or not (3 <= len(str(password)) <= 25) or password != password_confirmation:
+           
+            return render(request, "register.html", {"error" : "REGISTER FAILED"})
+
+        user_id = ""
+        for _ in range(25):
+            user_id += chr(randint(97, 122))
+        user = User(username=username, user_id=user_id, password=password)
+        user.save()
+        request.session["username"] = username 
+        request.session["user_id"] = user_id 
+        request.session["password"] = password 
+       
+    
         
         
     return render(request, "base.html")
+
+def save_login(request):
+    print("ENTRYPOINT")
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        users = User.objects.all()
+        for user in users:
+            if user.username == username and user.password == password:
+                request.session['username'] = username
+                request.session['user_id'] = user.user_id
+                request.session['password'] = password 
+                request.session['login_status'] = "SUCCESS"
+                return render(request, 'base.html')
+            
+        
+        return render(request, "login.html", {'error' : "LOGIN FAILED"})
+
 
 def open_lobby(request):
     return render(request, "create_lobby.html")
@@ -44,9 +76,9 @@ def create_lobby(request):
         lobby_name = request.POST.get("name")
         lobby_code = request.POST.get("code")
         user_id = request.session['user_id']
+        password = request.session['password']
         request.session["lobby_name"] = lobby_name
         request.session["lobby_code"] = lobby_code 
-      
 
         if "username" not in request.session:
             username = ""
@@ -83,16 +115,16 @@ def join_lobby(request, lobby_code):
     user_id = request.session['user_id']
     lobbies = Lobby.objects.all()
     rel_lobby = None
-    print(username, user_id, "??????")
+  
     for lobby in lobbies:
         print(lobby.lobby_code)
         if lobby.lobby_code == lobby_code:
             rel_lobby = lobby
-            print(lobby.lobby_users)
+            
             if [username, user_id] not in lobby.lobby_users:
                 rel_lobby.lobby_users.append([username, user_id])
     if rel_lobby:
-        print(rel_lobby.lobby_users)
+       
         rel_lobby.save()
     
     return render(request, "lobby.html", {'lobby' : rel_lobby})

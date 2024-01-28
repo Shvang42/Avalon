@@ -5,7 +5,9 @@ from django.db import models
 class User(models.Model):
     user_id = models.CharField(max_length=30, primary_key=True, unique=True)
     username = models.CharField(max_length=100)
+    password = models.CharField(max_length=30)
     date = models.DateTimeField(auto_now=True)
+    lobby_id = models.CharField(max_length=50, null=True)
 
 class Lobby(models.Model):
     lobby_name = models.CharField(max_length=30)

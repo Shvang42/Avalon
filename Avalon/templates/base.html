@@ -88,15 +88,20 @@
 
     <div class="button-container">
       
-        <a href="{% url 'open_active_lobbies' %}" id="lobby-join">Join Lobby</a>
-        <a href="{% url 'open_lobby' %}" id="lobby-create">Create Lobby</a>
+        <a href="{% url 'open_active_lobbies' %}" id="join-lobby">Join Lobby</a>
+        <a href="{% url 'open_lobby' %}" id="create-lobby">Create Lobby</a>
         {% if 'user_id' not in request.session %}
-            <a href="{% url 'register' %}" id="create-user">Create User</a>
+            <a href="{% url 'register' %}" id="register-user">Register</a>
+            <a href="{% url 'login' %}" id="login-user">Login</a>
         {% endif %}
 
         {% if 'user_id' in request.session %}
             <p>LOGGED IN AS {{ request.session.username }}</p>
         {% endif %}
+
+        
+
+        
       
     </div>
 
