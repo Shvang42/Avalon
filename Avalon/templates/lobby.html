@@ -1,0 +1,11 @@
+<script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
+<h2>Current Lobby</h2>
+<ul>
+{% for user, user_id in lobby.lobby_users %}
+  <li>{{ user }}</li></a>
+{% endfor %}
+</ul>

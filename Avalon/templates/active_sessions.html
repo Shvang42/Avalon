@@ -1,6 +1,9 @@
-<h2>Active Sessions</h2>
+
+
+  <h2>Active Lobbies</h2>
 <ul>
-{% for session in sessions %}
-  <li>Username: {{ session.username }} (last seen: {{ session.last_seen }})</li>
+{% for lob in lobbies %}
+  <li><a href="{% url 'join_lobby' lob.lobby_code %}">Lobby Name: {{ lob.lobby_name }} &nbsp; Lobby Host: {{ lob.lobby_host }}</li></a>
 {% endfor %}
 </ul>
+

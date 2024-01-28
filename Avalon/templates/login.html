@@ -1,0 +1,17 @@
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+<form action="{% url 'save_login' %}" method="post">
+    {% csrf_token %}
+    <label for="username">Enter your username:</label>
+    <input type="text" id="username" name="username" required>
+    <label for="password">Enter your password:</label>
+    <input type="password" id="password" name="password" required>
+    <button type="submit">Submit</button>
+</form>
+
+{% if error %}
+    <script>alert("FAILED LOGIN")</script>
+{% endif %}

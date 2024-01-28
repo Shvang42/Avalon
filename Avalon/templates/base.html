@@ -87,9 +87,25 @@
     </pre>
 
     <div class="button-container">
-        <button type="button" class="lobby-button" href="{% url 'enter_username' %}" >Create Lobby</button>
-        <button type="button" class="lobby-button" href="{% url 'enter_username' %}" >Join Lobby</button>
+      
+        <a href="{% url 'open_active_lobbies' %}" id="join-lobby">Join Lobby</a>
+        <a href="{% url 'open_lobby' %}" id="create-lobby">Create Lobby</a>
+        {% if 'user_id' not in request.session %}
+            <a href="{% url 'register' %}" id="register-user">Register</a>
+            <a href="{% url 'login' %}" id="login-user">Login</a>
+        {% endif %}
+
+        {% if 'user_id' in request.session %}
+            <p>LOGGED IN AS {{ request.session.username }}</p>
+        {% endif %}
+
+        
+
+        
+      
     </div>
+
+    
     
 </body>
 </html>

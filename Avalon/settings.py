@@ -28,7 +28,7 @@ SECRET_KEY = "django-insecure-go-uthe=j06n!(ati7@u6d0)8u&%k%%!zoz4b$0(+0vsv%xsn5
 DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
 
