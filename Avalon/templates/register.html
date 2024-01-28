@@ -1,0 +1,11 @@
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
+<form action="{% url 'save_register' %}" method="post">
+    {% csrf_token %}
+    <label for="username">Enter your username:</label>
+    <input type="text" id="username" name="username" required>
+    <button type="submit">Submit</button>
+</form>

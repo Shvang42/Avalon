@@ -1,0 +1,9 @@
+
+
+
+<h2>Current Lobby</h2>
+<ul>
+{% for user, user_id in lobby.lobby_users %}
+  <li>{{ user }} {{ user_id }}</li></a>
+{% endfor %}
+</ul>
