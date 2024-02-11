@@ -1,5 +1,5 @@
 # Avalon
-## Object of the Game
+### Object of the Game
 
 The Resistance: Avalon is the game of hidden loyalty. Players are either Loyal Servants of Arther 
 fighting for Goodness and honor or aligned with the Evil ways of Mordred. 
