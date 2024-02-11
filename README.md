@@ -1,5 +1,5 @@
 # Avalon
-Object of the Game
+# Object of the Game
     The Resistance: Avalon is the game of hidden loyalty. Players are either Loyal Servants of Arther 
     fighting for Goodness and honor or aligned with the Evil ways of Mordred. 
 
@@ -12,7 +12,7 @@ Object of the Game
     logical deducation are all equally important in order for Good to prevail or Evil to rule the day. 
 
     
-Characters
+# Characters
     Character cards determine the player's loyalty. References to a player's Good or Evil 
     loyalty are denoted with a special front. 
 
@@ -45,11 +45,12 @@ Characters
 
         ×5 Minions of Mordred
     
-Setup and Gameplay
+# Setup and Gameplay
     Choose any optional characters to include, Merlin and Assasin are always chosen. 
 
     A leader is randomly selected. The chart below determines the number of Good and Evil players.
-    
+
+    <img width="706" alt="Player Number" src="https://github.com/Shvang42/Avalon/assets/82295292/cf2fc2de-2e6b-4892-a023-d9a9b3667a9a">
 
     The game consists of several rounds; each round has a team building phase and a Quest phase. 
 
@@ -60,7 +61,8 @@ Setup and Gameplay
     In the Quest phase those players selected to be on the team will determine if the Quest is succesfull. 
 
     The chart below shows how many people need to be picked per mission depending on the number of players.
-    
+
+    <img width="706" alt="Mission#" src="https://github.com/Shvang42/Avalon/assets/82295292/5930440b-9f1a-4929-981c-975b07aadcc7">
 
     The leader can be on the team, but is not required to be so. 
 
