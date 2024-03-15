@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+        }
+        .left-panel, .right-panel {
+            width: 48%;
+        }
+        .box {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            border: 1px solid #ddd;
+            background: #f7f7f7;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="left-panel">
+        <div class="header">
+            <button class="button">Sign Out</button>
+        </div>
+        <div class="box" style="height: 300px;">
+            <!-- Dynamic content for friends list -->
+            <h2>Friends List</h2>
+        </div>
+        <div class="box" style="display: flex; justify-content: space-between;">
+            <button class="button">Join</button>
+            <button class="button">Create</button>
+        </div>
+    </div>
+    <div class="right-panel">
+        <div class="header">
+            <button class="button">Settings</button>
+        </div>
+        <div class="box" style="height: 150px;">
+            <!-- Dynamic content for stats -->
+            <h2>Stats</h2>
+            <ul>
+                <li>Value 1</li>
+                <li>Value 2</li>
+                <li>Value 3</li>
+            </ul>
+        </div>
+        <div class="box" style="flex-grow: 1;">
+            <!-- Dynamic content for other information -->
+        </div>
+    </div>
+</div>
+</body>
+</html>
