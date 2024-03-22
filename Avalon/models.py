@@ -25,4 +25,4 @@ class Card(models.Model):
     card_name = models.CharField(max_length=30, primary_key=True, unique=True)
     card_num = models.IntegerField(max_length=2)
     card_description = models.CharField(max_length=100)
-    card_color = models.BooleanField(empty_strings_allowed=False)
+    card_color = models.BooleanField()
